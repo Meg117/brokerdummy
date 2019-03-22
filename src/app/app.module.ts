@@ -4,18 +4,20 @@ import {FormsModule} from "@angular/forms";
 import { AppComponent } from './app.component';
 import { FormComponentComponent } from './form-component/form-component.component';
 import { TableComponent } from './table/table.component';
-
-
+import { ModalComponent } from './modal/modal.component';
+import {DataServiceService} from "./data-service.service";
+ 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponentComponent,
-    TableComponent
+    TableComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,FormsModule
   ],
-  providers: [],
+  providers: [DataServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

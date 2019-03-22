@@ -1,8 +1,12 @@
-<p>Ashutosh Kumar</p>
 
-<h1>Form</h1>
+<div style="background-color: midnightblue;padding:10px">
+  <h1 style="font-family: cursive;color:white;text-align:center">BROKER</h1>
+</div>
+<br>
+
 <div class="container">
-  <div class="alert alert-danger">{{error}}</div>
+  <div [hidden]=" error != 'success' " class="alert alert-success">{{error}}</div>
+  <div [hidden]=" error == 'success' || !error " class="alert alert-danger">{{error}}</div>
   <form>
     <div class="row">
       <div class="col lg-6">
@@ -18,7 +22,7 @@
       </div>
       <div class="col lg-6">
         State <select name="state" class='form-control' #state>
-          <option >Select</option>
+          <option value='none'>Select</option>
           <option value="New Delhi">New Delhi</option>
           <option value="New Delhi">New Delhi</option>
           <option value="New Delhi">New Delhi</option>                    
@@ -43,11 +47,11 @@
          <input type="submit" class="btn btn-primary btn-block" name='submit' value='Save' (click)="onSubmit(name.value,email.value,city.value,state.value,addl1.value,addl2.value,commission.value)">
         </div>
         <div class="col lg-6">
-          <input type="submit" class="btn btn-danger btn-block" name='cancel' value='Cancel'>
+          <input type="reset" class="btn btn-danger btn-block" (click)="reset()" name='cancel' value='Cancel'>
         </div>
       </div>
-    
   </form>
 </div>
 <br><br>
+
 <app-table></app-table>
