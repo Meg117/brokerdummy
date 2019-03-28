@@ -1,55 +1,56 @@
 
-<div style="background-color: midnightblue;padding:10px">
+<div style="background-color:rgb(216, 34, 119);padding:10px">
   <h1 style="font-family: cursive;color:white;text-align:center">BROKER</h1>
 </div>
 <br>
 
-<div class="container">
+<div class="container" style="font-family: cursive;">
   <div [hidden]=" error != 'success' " class="alert alert-success">{{error}}</div>
   <div [hidden]=" error == 'success' || !error " class="alert alert-danger">{{error}}</div>
   <form>
     <div class="row">
-      <div class="col lg-6">
-        Name <input type="text"  name='name' class="form-control" #name  >
-      </div>
-      <div class="col lg-6">
-        Email <input type="email"  name='email'class="form-control" #email>
-      </div>
+      <div class="col sm-5">
+         <input type="text" style="color:rgb(216, 34, 119)" name='name' class="form-control" #name placeholder="name">
+      </div></div>
+      <br>
+      <div class="row">
+      <div class="col sm-5">
+         <input type="email" style="color:rgb(216, 34, 119)" name='email'class="form-control" #email placeholder="email">
+      </div><br><br><br>
     </div>
     <div class="row">
-      <div class="col lg-6">
-        City <input type="text"  name='city'class="form-control" #city>
-      </div>
-      <div class="col lg-6">
-        State <select name="state" class='form-control' #state>
-          <option value='none'>Select</option>
-          <option value="New Delhi">New Delhi</option>
-          <option value="New Delhi">New Delhi</option>
-          <option value="New Delhi">New Delhi</option>                    
+      <div class="col lg-5">
+      <input type="text"  style="color:rgb(216, 34, 119)" name='city'class="form-control" #city placeholder="city">
+      </div><br>
+      <div class="col lg-5">
+         <select name="state" class='form-control' placeholder="state"#state>
+          <option style="color:rgb(216, 34, 119)" value='none'>Select</option>
+          <option  style="color:rgb(216, 34, 119)"value="New Delhi">New Delhi</option>
+          <option style="color:rgb(216, 34, 119)"value="New Delhi">New Delhi</option>
+          <option  style="color:rgb(216, 34, 119)"value="New Delhi">New Delhi</option>                    
         </select>
-      </div>
+      </div><br><br><br>
     </div>
     <div class="row">
+      <br><br>
+      <div class="col lg-5">
+       <input type="text" style="color:rgb(216, 34, 119)" name='addl1'class="form-control" #addl1 placeholder="  Address Line1">
+      </div><br>
       <div class="col lg-6">
-        Address Line1 <input type="text" name='addl1'class="form-control" #addl1>
-      </div>
-      <div class="col lg-6">
-        Address  Line2 <input type="text"  name='addl2' class="form-control" #addl2>
-      </div>
+       <input type="text" style="color:rgb(216, 34, 119)"  name='addl2' class="form-control" #addl2 placeholder=" Address  Line2 ">
+      </div><br>
     </div>
     <div class="row">
-      <div class="col-lg-12">
-        Commission <input type="text"  name='commission' class="form-control" #commission>
+      <div class="col-lg-12"><br>
+       <input type="text"  name='commission' class="form-control" #commission placeholder=" Commission ">
       </div>
     </div><br>
-      <div class="row">
-        <div class="col lg-6">
-         <input type="submit" class="btn btn-primary btn-block" name='submit' value='Save' (click)="onSubmit(name.value,email.value,city.value,state.value,addl1.value,addl2.value,commission.value)">
-        </div>
-        <div class="col lg-6">
-          <input type="reset" class="btn btn-danger btn-block" (click)="reset()" name='cancel' value='Cancel'>
-        </div>
-      </div>
+      <br>
+         <input type="submit" style=" background-color:rgb(216, 34, 119)"  class="btn btn-primary btn-block" name='submit' value='Save' (click)="onSubmit(name.value,email.value,city.value,state.value,addl1.value,addl2.value,commission.value)">
+      
+          <input type="reset"   class="btn btn-dark btn-block" (click)="reset()" name='cancel' value='Cancel'>
+        
+      
   </form>
 </div>
 <br><br>

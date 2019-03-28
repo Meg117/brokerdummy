@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {DataServiceService} from "../data-service.service";
 @Component({
   selector: 'app-form-component',
   templateUrl: './form-component.component.html',
@@ -7,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private data:DataServiceService) { }
   error:string ;
+  appData={};
   alpha:RegExp=/^[a-zA-Z]*$/;
   num:RegExp=/^[0-9]\d*(\.\d+)?$/;
 
@@ -43,7 +44,12 @@ export class FormComponentComponent implements OnInit {
 
       return this.error="Invalid Value";
     }
+
+    this.data.postbroker(this.appData);
+     
     return this.error = "success";
+    
+
   }
 
   reset(){
@@ -52,5 +58,5 @@ export class FormComponentComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+ 
 }

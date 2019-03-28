@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from "@angular/forms";
@@ -15,7 +16,7 @@ import {DataServiceService} from "./data-service.service";
     ModalComponent
   ],
   imports: [
-    BrowserModule,FormsModule
+    BrowserModule,FormsModule,NgModule
   ],
   providers: [DataServiceService],
   bootstrap: [AppComponent]
