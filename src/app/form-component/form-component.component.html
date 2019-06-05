@@ -10,43 +10,46 @@
   <form>
     <div class="row">
       <div class="col sm-5">
-         <input type="text" style="color:rgb(216, 34, 119)" name='name' class="form-control" #name placeholder="name">
+         <input type="text" style="color:rgb(216, 34, 119)" name='brokerName' class="form-control" #brokerName placeholder="name" [(ngModel)]='brokerName1'>
       </div></div>
       <br>
       <div class="row">
       <div class="col sm-5">
-         <input type="email" style="color:rgb(216, 34, 119)" name='email'class="form-control" #email placeholder="email">
+         <input type="email" style="color:rgb(216, 34, 119)" name='email'class="form-control" #email placeholder="email" [(ngModel)]='email1'>
       </div><br><br><br>
     </div>
     <div class="row">
       <div class="col lg-5">
-      <input type="text"  style="color:rgb(216, 34, 119)" name='city'class="form-control" #city placeholder="city">
+      <input type="text"  style="color:rgb(216, 34, 119)" name='city'class="form-control"[(ngModel)]='city1' #city placeholder="city">
       </div><br>
       <div class="col lg-5">
-         <select name="state" class='form-control' placeholder="state"#state>
-          <option style="color:rgb(216, 34, 119)" value='none'>Select</option>
+         <select name="state" class='form-control' [(ngModel)]='state1' placeholder="state"#state>
+          <option style="color:rgb(216, 34, 119)" value="none">State</option>
           <option  style="color:rgb(216, 34, 119)"value="New Delhi">New Delhi</option>
-          <option style="color:rgb(216, 34, 119)"value="New Delhi">New Delhi</option>
-          <option  style="color:rgb(216, 34, 119)"value="New Delhi">New Delhi</option>                    
+          <option style="color:rgb(216, 34, 119)"value="Maharashtra">Maharashtra</option>
+          <option  style="color:rgb(216, 34, 119)"value="Karnatka">Karnatka</option>  
+          <option  style="color:rgb(216, 34, 119)"value="Haryana">Haryana</option>
+          <option style="color:rgb(216, 34, 119)"value="Punjab">Punjab</option>
+          <option  style="color:rgb(216, 34, 119)"value="Tamil Nadu">Tamil Nadu</option>                   
         </select>
       </div><br><br><br>
     </div>
     <div class="row">
       <br><br>
       <div class="col lg-5">
-       <input type="text" style="color:rgb(216, 34, 119)" name='addl1'class="form-control" #addl1 placeholder="  Address Line1">
+       <input type="text" style="color:rgb(216, 34, 119)"[(ngModel)]='add11' name='add1'class="form-control" #add1 placeholder="  Address Line1">
       </div><br>
       <div class="col lg-6">
-       <input type="text" style="color:rgb(216, 34, 119)"  name='addl2' class="form-control" #addl2 placeholder=" Address  Line2 ">
+       <input type="text" style="color:rgb(216, 34, 119)" [(ngModel)]='add21' name='add2' class="form-control" #add2 placeholder=" Address  Line2 ">
       </div><br>
     </div>
     <div class="row">
       <div class="col-lg-12"><br>
-       <input type="text"  name='commission' class="form-control" #commission placeholder=" Commission ">
+       <input type="text"  name='commission'[(ngModel)]='commission1' class="form-control" #commission placeholder=" Commission ">
       </div>
     </div><br>
       <br>
-         <input type="submit" style=" background-color:rgb(216, 34, 119)"  class="btn btn-primary btn-block" name='submit' value='Save' (click)="onSubmit(name.value,email.value,city.value,state.value,addl1.value,addl2.value,commission.value)">
+         <input type="submit" style=" background-color:rgb(216, 34, 119)"  class="btn btn-primary btn-block" name='submit' value='Save' (click)="onSubmit(brokerName.value,email.value,city.value,state.value,add1.value,add2.value,commission.value)">
       
           <input type="reset"   class="btn btn-dark btn-block" (click)="reset()" name='cancel' value='Cancel'>
         
@@ -55,4 +58,6 @@
 </div>
 <br><br>
 
-<app-table></app-table>
+<app-table (childEvent)='onget($event)'>
+
+</app-table>

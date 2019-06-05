@@ -1,3 +1,4 @@
+
 <div class="container">
   
   
@@ -15,28 +16,26 @@
           <!-- Modal body -->
           <div class="modal-body">
             <div class="list-group" style="font-family:cursive;color:rgb(216, 34, 119)">
-              <li class="list-group-item"> <b>S.No.</b> :&nbsp;&nbsp;&nbsp;1</li>
+              <li class="list-group-item"> <b>S.No.</b> :&nbsp;&nbsp;&nbsp;{{this.view?.brokersId}}</li>
 
-              <li class="list-group-item">  <b>Name</b> : &nbsp;  Ashutosh</li>
+              <li class="list-group-item">  <b>Name</b> : &nbsp; {{this.view?.brokerName}} </li>
 
-              <li class="list-group-item"> <b>City</b>  :&nbsp;&nbsp; &nbsp;&nbsp;   New Delhi</li>
+              <li class="list-group-item"> <b>City</b>  :&nbsp;&nbsp; &nbsp;&nbsp; {{this.view?.city}}  </li>
 
-              <li class="list-group-item"> <b>State</b>  :&nbsp;&nbsp;&nbsp;&nbsp;Delhi</li>
+              <li class="list-group-item"> <b>State</b>  :&nbsp;&nbsp;&nbsp;&nbsp; {{this.view?.state}}</li>
 
-              <li class="list-group-item"><b>Email</b> :&nbsp;&nbsp;&nbsp;abc@gmail.com</li>
+              <li class="list-group-item"><b>Email</b> :&nbsp;&nbsp;&nbsp; {{this.view?.email}}</li>
 
-              <li class="list-group-item"><b>Address Line 1</b>:&nbsp; Ad svf hdfsahjdf</li>
+              <li class="list-group-item"><b>Address Line 1</b>:&nbsp; {{this.view?.add1}}</li>
 
-              <li class="list-group-item"> <b>Address Line 2</b>:&nbsp; zagt sdhbdshsdhdtgn</li>
+              <li class="list-group-item"> <b>Address Line 2</b>:&nbsp; {{this.view?.add2}}</li>
 
-              <li class="list-group-item"><b>Commission</b>:&nbsp;&nbsp;&nbsp; 0.555</li>
+              <li class="list-group-item"><b>Commission</b>:&nbsp;&nbsp;&nbsp; {{this.view?.commission}}</li>
             </div>
           </div>
     
           <!-- Modal footer -->
-          <div class="modal-footer">
-            <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-          </div>
+        
     
         </div>
       </div>
@@ -63,31 +62,37 @@
           <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
               Open modal
             </button> -->
-        <tr *ngFor='let i of appData'| paginate: { itemsPerPage: 5, currentPage: p }>
-          <td>{{i.id}}</td>
-          <td>{{i.name}}</td>
+        <tr *ngFor='let i of this.appData | paginate: { itemsPerPage: 5, currentPage: p }'>
+          <td>{{i.brokersId}}</td>
+          <td>{{i.brokerName}}</td>
           <TD>{{i.city}}</TD>
           <td>{{i.email}}</td>
           <td>{{i.state}}</td>
-          <td>{{i.address1}}</td>
-          <td>{{i.address2}}</td>
+          <td>{{i.add1}}</td>
+          <td>{{i.add2}}</td>
           <td>{{i.commission}}</td>
           <td >
            <div class='btn-group'>
-                <div class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" (click)="putbroker(i.id)>View</div>
-             
-                <div class="btn btn-outline-secondary">Edit</div>
+                <div class="btn" data-toggle="modal" data-target="#myModal" data-placement="bottom"(click)="show(i.brokersId-1)" title="view"><img src="assets/view.svg"  style="height:30px;width:30px"></div>
+               
+                <div class="btn" data-toggle="tooltip" data-placement="bottom" title="edit" (click)="updateb(i.brokersId)"><img src="assets/edit.svg"  style="height:30px;width:30px"></div>
               
-                <div class="btn btn-outline-dark" (click)="deletebroker(i.id)">Delete</div>
+                <div class="btn"  data-toggle="tooltip"  (click)="delbroker(i.brokersId)" data-placement="bottom" title="delete"><img src="assets/delete.svg"  style="height:30px;width:30px"></div>
+                
               
-                <div  [hidden]='i.isActive == 1' class="btn btn-outline-secondary" (click)="Toggle(i.id)">Activate</div>
-                <div  [hidden]='i.isActive == 0' class="btn btn-outline-dark" (click)="Toggle(i.id)">Deactivate</div>
+                <div  [hidden]='i.isActive == 1' class="btn" (click)="Toggle(i.brokersId)" data-toggle="tooltip" data-placement="bottom" title="activate"><img src="assets/deactivate.svg" style="height:30px;width:30px"></div>
+                <div  [hidden]='i.isActive == 0' class="btn" (click)="Toggle(i.brokersId)" data-toggle="tooltip" data-placement="bottom" title="deactivate"><img src="assets/activate.svg"  style="height:30px;width:30px"></div>
 
               </div>
           </td>
         </tr>
       </tbody>
     </table>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+   
   </div>
+  <br>
+  <br>
+  <div style="font-family:cursive;color:rgb(216, 34, 119)">
+  <pagination-controls style="color:rgb(216, 34, 119)"(pageChange)="p = $event"></pagination-controls>
+</div>
 </div>
